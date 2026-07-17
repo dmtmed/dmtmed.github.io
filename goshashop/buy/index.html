@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ГошаШоп | Узнать цену попугая</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#eef7ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    text-align:center;
+    width:350px;
+}
+
+h1{
+    margin-top:0;
+}
+
+select,button{
+    width:100%;
+    padding:12px;
+    font-size:18px;
+    margin-top:15px;
+    border-radius:8px;
+}
+
+button{
+    cursor:pointer;
+}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>🦜 Купить попугая в ГошаШоп | Цена</h1>
+
+<select id="bird">
+    <option value="budgie">Волнистый попугайчик</option>
+    <option value="scarlet">Красный ара</option>
+    <option value="bluegold">Сине-жёлтый ара</option>
+    <option value="umnyaga">Умняга</option>
+</select>
+
+<button onclick="showPrice()">
+Узнать цену
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const parrots={
+    budgie:{
+        name:"Волнистый попугайчик",
+        price:8,
+        url:"https://dmtmed.github.io/goshashop/buy/checkout/?parrot=budgie"
+    },
+
+    scarlet:{
+        name:"Красный ара",
+        price:799,
+        url:"https://clck.ru/3UqHqK"
+    },
+
+    bluegold:{
+        name:"Сине-жёлтый ара",
+        price:703,
+        url:"https://clck.ru/3UqHtB"
+    },
+
+    umnyaga:{
+        name:"Умняга",
+        price:650000,
+        url:"https://clck.ru/3UqKGV"
+    }
+};
+
+function showPrice(){
+
+    const id=document.getElementById("bird").value;
+
+    const bird=parrots[id];
+
+    document.getElementById("result").innerHTML=
+    `
+    <p><b>${bird.name}</b></p>
+
+    <p>Цена: <b>${bird.price.toLocaleString("ru-RU")} бакров</b></p>
+
+    <button onclick="window.location.href='${bird.url}'">
+        Купить
+    </button>
+    `;
+}
+
+</script>
+
+</body>
+</html>
